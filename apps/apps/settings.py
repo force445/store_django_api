@@ -171,4 +171,3 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
-print(SOCIALACCOUNT_PROVIDERS['google']['APP'])
