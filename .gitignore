@@ -29,6 +29,7 @@ MANIFEST
 .pyc
 .pytest_cache
 .__pycache__
+__pycache__
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
