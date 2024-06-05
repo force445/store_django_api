@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from apis.models import User, Product, SaleOrder
+from apis.models import UserAccount, Product, SaleOrder
 
-class UserSerializer(serializers.ModelSerializer):
+class UserAccountSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         data = super().to_representation(instance)
         del data["deleted"]
@@ -9,7 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
         return data
 
     class Meta:
-        model = User
+        model = UserAccount
         fields = "__all__"
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -29,7 +29,8 @@ class SaleOrderSerializer(serializers.ModelSerializer):
         del data["deleted"]
         del data["deleted_by_cascade"]
         data['product'] = ProductSerializer(instance.product).data
-        data['User'] = UserSerializer(instance.product).data
+        data['User'] = UserAccountSerializer(instance.product).data
+        data['quantity'] = ProductSerializer(instance.product).data
         return data
     
     class Meta:

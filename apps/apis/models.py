@@ -29,7 +29,7 @@ class UserAccount(BaseModel):
         }
 
 class Product(BaseModel):
-    image = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    image = models.ImageField(upload_to='product_images/', height_field=None, width_field=None, max_length=100)
     title = models.CharField(blank=False, max_length=100, db_index=True, unique=True)
     description = models.CharField(null=False, blank=False, max_length=255)
     unit_price = models.FloatField(default=None, null=True, blank=False)
