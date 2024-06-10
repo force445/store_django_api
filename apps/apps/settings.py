@@ -160,7 +160,8 @@ SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE' : [
             'profile',
-            'email'
+            'email',
+            'https://www.googleapis.com/auth/userinfo.email'
         ],
         'APP': {
             'client_id': os.environ.get("CLIENT_ID"),
@@ -168,7 +169,7 @@ SOCIALACCOUNT_PROVIDERS = {
         },
         'AUTH_PARAMS': {
             'access_type':'online',
-        }
+        },
     }
 }
 
